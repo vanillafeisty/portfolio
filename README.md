@@ -1,29 +1,41 @@
-# Personal Portfolio
+# ✨ Personal Portfolio
 
-A clean, minimal software developer portfolio built with React (Vite) + Node.js + SQLite.
+A polished developer portfolio built with React + Vite for the frontend and Node.js + SQLite for the backend.
+
+> Beautiful, minimal, and easy to customize for your own skills, projects, and contact form.
 
 ---
 
-## Project Structure
+## 🚀 Live Preview
+
+Start the frontend and open this URL:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+## 📁 Project Structure
 
 ```
 portfolio/
-├── frontend/          # React + Vite app
+├── frontend/          # React + Vite portfolio site
+│   ├── public/            # static assets and resume.pdf
 │   ├── src/
-│   │   ├── components/    # Navbar, Hero, About, Skills, Experience,
-│   │   │                  # Projects, InterestsActivities, Contact, Footer
-│   │   ├── data.js        # ← Edit this to personalise everything
+│   │   ├── components/    # page sections and reusable UI pieces
+│   │   ├── data.js        # main content source for your portfolio
 │   │   ├── App.jsx
 │   │   ├── main.jsx
 │   │   └── index.css
-│   ├── public/            # Place resume.pdf here
 │   ├── index.html
-│   ├── vite.config.js
-│   └── .env.example
+│   ├── package.json
+│   └── vite.config.js
 │
-├── backend/           # Express + SQLite API
+├── backend/           # Express API and SQLite persistence
 │   ├── server.js
-│   ├── contacts.db    # Auto-created on first run (gitignored)
+│   ├── contacts.db    # created automatically on first run
+│   ├── package.json
 │   └── .env.example
 │
 ├── .gitignore
@@ -32,150 +44,147 @@ portfolio/
 
 ---
 
-## Quick Start (Local Development)
+## ⚡ Quick Start
 
-### 1. Clone & install
+Install both frontend and backend dependencies from the project root:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
 npm run install:all
 ```
 
-### 2. Configure environment
+Run the frontend:
 
 ```bash
-# Backend
-cp backend/.env.example backend/.env
-# Edit backend/.env — set ADMIN_TOKEN and optionally EMAIL_USER/EMAIL_PASS
-
-# Frontend
-cp frontend/.env.example frontend/.env
-# In dev, leave VITE_BACKEND_URL empty — Vite proxies /api automatically
+npm run dev:frontend
 ```
 
-### 3. Run both servers
-
-Open two terminals:
+Run the backend:
 
 ```bash
-# Terminal 1 — Backend (port 3001)
-cd backend && npm run dev
-
-# Terminal 2 — Frontend (port 5173)
-cd frontend && npm run dev
+npm run dev:backend
 ```
 
-Visit `http://localhost:5173`
+Then open:
+
+```bash
+http://localhost:5173
+```
 
 ---
 
-## Personalise Your Portfolio
+## 🎨 Customize Your Portfolio
 
-**All content lives in one file: `frontend/src/data.js`**
+All portfolio content is configured in:
 
-Edit the following exports:
+```bash
+frontend/src/data.js
+```
 
-| Export       | What to change                                      |
-|--------------|-----------------------------------------------------|
-| `profile`    | Name, title, tagline, bio, email, phone, links      |
-| `skills`     | Categories and skill items                          |
-| `experience` | Work history — role, company, period, description   |
-| `projects`   | Projects — title, description, tech, GitHub, live   |
-| `interests`  | Hobby/interest tags                                 |
-| `activities` | Clubs, hackathons, volunteering                     |
+Update these exports to personalize your site:
 
-Also drop your **resume PDF** at `frontend/public/resume.pdf`.
+- `profile` — name, title, bio, contact info, social links
+- `skills` — categories and skill items
+- `experience` — work history and achievements
+- `projects` — projects, tech stack, links
+- `interests` — hobbies and passions
+- `activities` — events, clubs, volunteering
+
+Add your resume here:
+
+```bash
+frontend/public/resume.pdf
+```
 
 ---
 
-## View Contact Form Submissions
+## 🛠️ Available Scripts
 
-All messages submitted via the contact form are saved to `backend/contacts.db`.
+From the root project folder:
 
-**View via API:**
+```bash
+npm run install:all    # install frontend + backend dependencies
+npm run dev:frontend   # launch frontend app
+npm run dev:backend    # launch backend server
+npm run build          # build frontend for production
 ```
+
+From inside `frontend/`:
+
+```bash
+npm run dev
+npm run build
+npm run preview
+```
+
+---
+
+## 🔌 Backend Contact Form
+
+The backend stores contact submissions in `backend/contacts.db`.
+
+Create your `.env` file:
+
+```bash
+cd backend
+copy .env.example .env
+```
+
+Set these values in `backend/.env`:
+
+- `ADMIN_TOKEN`
+- `EMAIL_USER` (optional)
+- `EMAIL_PASS` (optional)
+
+### View messages
+
+API:
+
+```bash
 GET http://localhost:3001/api/contacts?token=YOUR_ADMIN_TOKEN
 ```
 
-Or view directly with SQLite:
+SQLite query:
+
 ```bash
 cd backend
 npx better-sqlite3 contacts.db "SELECT * FROM contacts ORDER BY created_at DESC;"
 ```
 
-**Email notifications:** Fill in `EMAIL_USER` and `EMAIL_PASS` in `backend/.env`
-and every new contact form submission will be emailed to you instantly.
-Use a Gmail App Password (not your real password).
-Generate at: myaccount.google.com → Security → 2-Step Verification → App Passwords
-
 ---
 
-## Deployment
+## ☁️ Deployment
 
-### Frontend → GitHub Pages (free)
+### Frontend
 
-1. Install the deploy helper:
-   ```bash
-   cd frontend && npm install --save-dev gh-pages
-   ```
+- Vercel (recommended)
+- GitHub Pages
+- Netlify
 
-2. Add to `frontend/package.json`:
-   ```json
-   "homepage": "https://yourusername.github.io/portfolio",
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
+### Backend
 
-3. Set your backend URL in `frontend/.env`:
-   ```
-   VITE_BACKEND_URL=https://your-backend.onrender.com
-   ```
+- Render
+- Railway
+- Heroku
 
-4. Deploy:
-   ```bash
-   npm run deploy
-   ```
+### Vercel setup
 
-### Frontend → Vercel (recommended, free)
-
-1. Push to GitHub
-2. Go to vercel.com → Import project
-3. Set **Root Directory** to `frontend`
-4. Add environment variable: `VITE_BACKEND_URL=https://your-backend.onrender.com`
+1. Push the repo to GitHub
+2. Import the project in Vercel
+3. Set root directory to `frontend`
+4. Add `VITE_BACKEND_URL` if your backend is deployed separately
 5. Deploy
 
-### Backend → Render (free tier)
+---
 
-1. Push to GitHub
-2. Go to render.com → New Web Service
-3. Set **Root Directory** to `backend`
-4. Build command: `npm install`
-5. Start command: `node server.js`
-6. Add environment variables from `backend/.env.example`
-7. Deploy
+## 💻 Tech Stack
 
-### Custom Domain
-
-Point your domain's DNS to Vercel/GitHub Pages. Vercel handles HTTPS automatically.
+- Frontend: React 18, Vite, CSS
+- Backend: Node.js, Express
+- Database: SQLite
+- Email: Nodemailer
 
 ---
 
-## Tech Stack
+## 📄 License
 
-| Layer     | Tech                              |
-|-----------|-----------------------------------|
-| Frontend  | React 18, Vite, CSS       |
-| Backend   | Node.js, Express                  |
-| Database  | SQLite (via better-sqlite3)       |
-| Email     | Nodemailer + Gmail App Password   |
-| Fonts     | Times New Roman, Courier New      |
-| Deploy    | Vercel (frontend), Render (backend) |
-
----
-
-## License
-
-MIT — use freely, no attribution required.
+MIT — free to use and adapt.
