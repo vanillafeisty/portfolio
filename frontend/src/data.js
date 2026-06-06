@@ -13,7 +13,7 @@ From designing multi-model emergency response systems to building autonomous Lin
   location: "Bhubaneswar, Odisha, India",
   github: "https://github.com/vanillafeisty",
   linkedin: "https://www.linkedin.com/in/a-sonal-268ssb",
-  resume: "/resume.pdf",
+  resume: "/Ardhi%20Sonal.pdf",
   gpa: "3.5 / 4.0",
   university: "NIST University",
   degree: "B.Tech in Computer Science",

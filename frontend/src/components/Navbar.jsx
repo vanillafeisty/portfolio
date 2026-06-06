@@ -71,7 +71,7 @@ export default function Navbar() {
               </a>
             )
           })}
-          <a href={profile.resume} target="_blank" rel="noreferrer" style={{
+          <a href={profile.resume} download target="_blank" rel="noreferrer" style={{
             padding:'8px 18px', borderRadius:8,
             background:'var(--grad)', color:'#fff',
             fontSize:12, fontWeight:600, letterSpacing:'0.04em',

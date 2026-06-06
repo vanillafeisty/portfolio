@@ -181,7 +181,7 @@ export default function Hero() {
             >
               View Projects →
             </a>
-            <a href={profile.resume} target="_blank" rel="noreferrer" style={{
+            <a href={profile.resume} download target="_blank" rel="noreferrer" style={{
               padding:'12px 26px', borderRadius:10,
               background:'transparent', color:'var(--white)',
               border:'1px solid rgba(255,255,255,0.15)',
