@@ -1,16 +1,18 @@
+import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import InterestsActivities from './components/InterestsActivities'
+import Focus from './components/Focus'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
   return (
     <>
+      <Cursor />
       <Navbar />
       <main>
         <Hero />
@@ -18,7 +20,7 @@ export default function App() {
         <Skills />
         <Experience />
         <Projects />
-        <InterestsActivities />
+        <Focus />
         <Contact />
       </main>
       <Footer />
