@@ -181,7 +181,7 @@ export default function Hero() {
             >
               View Projects →
             </a>
-            <a href={profile.resume} download target="_blank" rel="noreferrer" style={{
+            <a href={profile.resume} target="_blank" rel="noreferrer" style={{
               padding:'12px 26px', borderRadius:10,
               background:'transparent', color:'var(--white)',
               border:'1px solid rgba(255,255,255,0.15)',
@@ -191,7 +191,7 @@ export default function Hero() {
             onMouseEnter={e=>{e.target.style.borderColor='rgba(0,212,255,0.4)';e.target.style.background='rgba(0,212,255,0.05)'}}
             onMouseLeave={e=>{e.target.style.borderColor='rgba(255,255,255,0.15)';e.target.style.background='transparent'}}
             >
-              Download Résumé
+              View Résumé
             </a>
           </div>
 
